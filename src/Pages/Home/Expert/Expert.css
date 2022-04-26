@@ -1,0 +1,13 @@
+.explore-btn {
+  width: 100%;
+  background-color: rgb(7, 87, 178);
+  height: 40px;
+  border: none;
+  font-weight: bolder;
+  font-size: 18px;
+  color: rgb(0, 0, 0);
+}
+.explore-btn:hover {
+  background-color: rgb(0, 0, 0);
+  color: lightgray;
+}
