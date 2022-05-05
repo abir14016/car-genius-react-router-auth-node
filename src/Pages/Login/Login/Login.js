@@ -8,6 +8,7 @@ import SocialLogin from '../SocialLogin/SocialLogin';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './Login.css'
+import PageTitle from '../../Shared/PageTitle/PageTitle';
 
 const Login = () => {
     const navigate = useNavigate()
@@ -64,6 +65,7 @@ const Login = () => {
 
     return (
         <div className='pt-5'>
+            <PageTitle title="Login"></PageTitle>
             <h2 className='text-primary text-center'>Welcome To Login Page</h2>
             <Form onSubmit={handleLogin} className='form-container bg-dark text-white p-4 my-4 rounded'>
                 <h4 className='text-center'>please login</h4>
