@@ -9,6 +9,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './Login.css'
 import PageTitle from '../../Shared/PageTitle/PageTitle';
+import axios from 'axios';
 
 const Login = () => {
     const navigate = useNavigate()
@@ -26,7 +27,7 @@ const Login = () => {
     ] = useSignInWithEmailAndPassword(auth);
 
     if (user) {
-        navigate(from, { replace: true });
+        // navigate(from, { replace: true });
     }
 
 
@@ -38,11 +39,15 @@ const Login = () => {
             </div>
     }
 
-    const handleLogin = event => {
+    const handleLogin = async event => {
         event.preventDefault();
         const email = emailRef.current.value;
         const password = passwordRef.current.value;
-        signInWithEmailAndPassword(email, password)
+
+        await signInWithEmailAndPassword(email, password);
+        const { data } = await axios.post('https://calm-scrubland-98189.herokuapp.com/login', { email });
+        localStorage.setItem('accessToken', data.accessToken);
+        navigate(from, { replace: true });
     }
 
     const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(auth);
